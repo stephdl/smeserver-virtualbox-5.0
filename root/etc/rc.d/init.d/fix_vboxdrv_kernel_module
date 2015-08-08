@@ -1,0 +1,9 @@
+#!/bin/bash
+##script to compile vboxdrv kernel module if needed by virtualbox
+##stephane de Labrusse <stephdl@de-labrusse.fr>
+rkernel=`uname -r`
+          vmxnet="/lib/modules/`uname -r`/kernel/misc/vboxdrv.ko"
+          if [ ! -e $vmxnet ]; then
+               /etc/init.d/vboxdrv setup; /etc/init.d/vboxweb-service start
+          fi
+
