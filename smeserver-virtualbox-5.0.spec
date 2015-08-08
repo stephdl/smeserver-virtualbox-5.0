@@ -16,7 +16,6 @@ BuildArchitectures: noarch
 BuildRequires: e-smith-devtools
 Requires: e-smith-release >= 8.0
 Requires: VirtualBox-5.0
-Obsoletes: VirtualBox-4.3 
 #Patch0: smeserver-virtualbox-4.3.1_fix_vboxdrv_kernel_module.patch
 AutoReqProv: no
 
