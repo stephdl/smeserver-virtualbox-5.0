@@ -1,6 +1,6 @@
 %define name smeserver-virtualbox-5.0
 %define version 5.0.0
-%define release 2
+%define release 3
 %define rpmver   5.0.0
 Summary: smserver rpm to install virtualbox
 Name: %{name}
@@ -23,6 +23,9 @@ AutoReqProv: no
 smserver rpm to install virtualbox
 
 %changelog
+* Wed Aug 07 2015 stephane de Labrusse <stephdl@de-labrusse.fr> 5.0.0-3
+- vboxweb-service start now at S99
+
 * Thu Aug 06 2015 stephane de labrusse <stephdl@de-labrusse.fr> 5.0.0-2
 - require virtualbox-5.0
 
@@ -65,7 +68,7 @@ if [ $1 > 1 ] ; then
 /bin/ln -fs /etc/rc.d/init.d/vboxdrv /etc/rc7.d/S20vboxdrv >/dev/null 2>&1
 /bin/ln -fs /etc/rc.d/init.d/vboxautostart-service /etc/rc7.d/S35vboxautostart-service >/dev/null 2>&1
 /bin/ln -fs /etc/rc.d/init.d/vboxballoonctrl-service /etc/rc7.d/S35vboxballoonctrl-service >/dev/null 2>&1
-/bin/ln -fs /etc/rc.d/init.d/vboxweb-service /etc/rc7.d/S86vboxweb-service >/dev/null 2>&1
+/bin/ln -fs /etc/rc.d/init.d/vboxweb-service /etc/rc7.d/S99vboxweb-service >/dev/null 2>&1
 /bin/ln -fs /etc/rc.d/init.d/fix_vboxdrv_kernel_module /etc/rc7.d/S19fix_vboxdrv_kernel_module >/dev/null 2>&1
 fi
 /etc/init.d/vboxdrv start >/dev/null 2>&1
@@ -77,7 +80,7 @@ if [ $1 = 0 ] ; then
 /bin/rm -rf  /etc/rc7.d/S20vboxdrv 
 /bin/rm -rf  /etc/rc7.d/S35vboxautostart-service 
 /bin/rm -rf  /etc/rc7.d/S35vboxballoonctrl-service 
-/bin/rm -rf  /etc/rc7.d/S86vboxweb-service 
+/bin/rm -rf  /etc/rc7.d/S99vboxweb-service 
 /bin/rm -rf  /etc/rc7.d/S19fix_vboxdrv_kernel_module
 fi
 %files -f %{name}-%{version}-filelist
